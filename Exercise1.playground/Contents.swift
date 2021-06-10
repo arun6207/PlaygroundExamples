@@ -79,13 +79,22 @@ struct StructEmployee {
         self.depart = department
     }
     
+    func changeDayButtonClicked(value1: String, value2: String) -> String {
+        return value1 + value2
+    }
 }
 
 let strcutValue1 = StructEmployee(employeeId: 20, employeeName: "Kiran", department: "CSE")
+
+let finalValue = strcutValue1.changeDayButtonClicked(value1: "Hello", value2: "World")
 
 //copy employee object to new object
 var strcutValue2 = strcutValue1
 strcutValue2.depart = "EEE"
 
 print(strcutValue1.depart) //EEE
-print(strcutValue2.depart) //CSE - Since its a value type this won't change
+print(strcutValue2.depart)//CSE - Since its a value type this won't change
+
+print(finalValue)
+
+
