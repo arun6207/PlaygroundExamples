@@ -97,4 +97,91 @@ print(strcutValue2.depart)//CSE - Since its a value type this won't change
 
 print(finalValue)
 
+enum ChooseFlightInfoSection: Int, CaseIterable {
+    case flight
+    case passenger
+}
 
+
+print(ChooseFlightInfoSection(rawValue: 2))
+
+//didset
+//willset
+//set and get
+
+
+
+var salary: Float = 55000
+var salaryPerYear: Float = 0.0
+
+//computed variable only get and we cannt set
+var salaryPerWeek: Float {
+    return salary/7
+}
+
+//computed variable with both  get and set - newValue
+var salaryPerWeek1: Float {
+    get {
+       return salary/7
+    } set {
+       return salaryPerYear = newValue * 10
+    }
+    
+}
+
+//if we have didset then default value is mandatory
+var salaryPerWeek2: Float = 0.0 {
+    didSet {
+        salary = salary + salaryPerWeek2
+    }
+    
+}
+
+var salaryPerWeek3: Float = 0.0 {
+    willSet {
+        print("new value is \(newValue)")
+    } didSet {
+        print("old value is \(oldValue)")
+    }
+}
+
+print(salaryPerWeek1)
+salaryPerWeek1 = 20000
+print(salaryPerYear)
+
+salaryPerWeek2 = 2
+
+salaryPerWeek3 = 500
+
+salaryPerWeek3 = 1000
+
+//state identify
+enum FieldType {
+    case north
+    case south
+    case west
+    case east
+}
+
+
+var filed: FieldType  = .north
+
+
+
+if filed == .north {
+    print("firsntanme")
+} else if filed == .south {
+    print("lastname")
+}
+
+//value type
+switch filed {
+case .south:
+    print("firsntanme")
+case .north:
+    print("lasame")
+case .west:
+    print("city")
+case .east:
+    print("east")
+}
